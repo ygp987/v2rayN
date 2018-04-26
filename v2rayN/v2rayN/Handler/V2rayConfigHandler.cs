@@ -142,6 +142,7 @@ namespace v2rayN.Handler
                 }
                 //开启udp
                 v2rayConfig.inbound.settings.udp = config.inbound[0].udpEnabled;
+                v2rayConfig.inbound.settings.timeout = config.inbound[0].timeout;
             }
             catch
             {

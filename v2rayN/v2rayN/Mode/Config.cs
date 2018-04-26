@@ -348,6 +348,12 @@ namespace v2rayN.Mode
         /// 允许udp
         /// </summary>
         public bool udpEnabled { get; set; }
+        
+        /// <summary>
+        /// 本地监听端口
+        /// </summary>
+        public int timeout { get; set; }
+
     }
 
     [Serializable]

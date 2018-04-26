@@ -40,6 +40,7 @@ namespace v2rayN.Forms
                 txtlocalPort.Text = config.inbound[0].localPort.ToString();
                 cmbprotocol.Text = config.inbound[0].protocol.ToString();
                 chkudpEnabled.Checked = config.inbound[0].udpEnabled;
+                txtTimeout.Text = config.inbound[0].timeout.ToString();
                 if (config.inbound.Count > 1)
                 {
                     txtlocalPort2.Text = config.inbound[1].localPort.ToString();
@@ -151,11 +152,17 @@ namespace v2rayN.Forms
 
             //本地监听
             string localPort = txtlocalPort.Text.Trim();
+            string timeout = txtTimeout.Text.Trim();
             string protocol = cmbprotocol.Text.Trim();
             bool udpEnabled = chkudpEnabled.Checked;
             if (Utils.IsNullOrEmpty(localPort) || !Utils.IsNumberic(localPort))
             {
                 UI.Show("请填写本地监听端口");
+                return -1;
+            }
+            if (Utils.IsNullOrEmpty(timeout) || !Utils.IsNumberic(timeout))
+            {
+                UI.Show("请填写监听超时时间");
                 return -1;
             }
             if (Utils.IsNullOrEmpty(protocol))
@@ -166,6 +173,7 @@ namespace v2rayN.Forms
             config.inbound[0].localPort = Utils.ToInt(localPort);
             config.inbound[0].protocol = protocol;
             config.inbound[0].udpEnabled = udpEnabled;
+            config.inbound[0].timeout = Utils.ToInt(timeout);
 
             //本地监听2
             string localPort2 = txtlocalPort2.Text.Trim();

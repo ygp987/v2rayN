@@ -93,7 +93,10 @@ namespace v2rayN.Mode
         /// 
         /// </summary>
         public string ip { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        public int timeout { get; set; }
         /// <summary>
         /// 
         /// </summary>

@@ -52,6 +52,7 @@ namespace v2rayN.Handler
                 InItem inItem = new InItem();
                 inItem.protocol = "socks";
                 inItem.localPort = 1080;
+                inItem.timeout = 300;
                 inItem.udpEnabled = true;
 
                 config.inbound.Add(inItem);

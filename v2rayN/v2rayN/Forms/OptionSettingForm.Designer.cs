@@ -84,6 +84,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTimeout = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -151,6 +153,8 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtlocalPort);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtTimeout);
+            this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -319,6 +323,22 @@
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "本地监听端口";
+            // 
+            // txtTimeout
+            // 
+            this.txtTimeout.Location = new System.Drawing.Point(124, 55);
+            this.txtTimeout.Name = "txtTimeout";
+            this.txtTimeout.Size = new System.Drawing.Size(78, 21);
+            this.txtTimeout.TabIndex = 3;
+            // 
+            // labe20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(33, 59);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(77, 12);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "监听超时(s)";
             // 
             // tabPage2
             // 
@@ -773,5 +793,7 @@
         private System.Windows.Forms.CheckBox chkAllowLANConn;
         private System.Windows.Forms.TextBox txtremoteDNS;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtTimeout;
     }
 }
