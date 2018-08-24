@@ -47,6 +47,7 @@ namespace v2rayN.Forms
 
             LoadV2ray();
 
+            HideForm();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -741,6 +742,8 @@ namespace v2rayN.Forms
             this.Activate();
             //this.notifyIcon1.Visible = false;
             this.ShowInTaskbar = true;
+
+            SetVisibleCore(true);
         }
 
         private void HideForm()
@@ -749,6 +752,8 @@ namespace v2rayN.Forms
             this.Hide();
             this.notifyMain.Visible = true;
             this.ShowInTaskbar = false;
+
+            SetVisibleCore(false);
         }
 
         #endregion
