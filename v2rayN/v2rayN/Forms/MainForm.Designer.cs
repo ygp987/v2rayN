@@ -30,7 +30,35 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lvServers = new System.Windows.Forms.ListView();
+            this.cmsLv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuAddVmessServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddShadowsocksServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddSocksServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddCustomServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddServers = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuScanScreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuRemoveServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCopyServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSetDefaultServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuMoveTop = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMoveUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMoveDown = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMoveBottom = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSelectAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuPingServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSpeedServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuExport2ClientConfig = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExport2ServerConfig = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExport2ShareUrl = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExport2SubContent = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbServer = new System.Windows.Forms.ToolStripDropDownButton();
+            this.qrCodeControl = new v2rayN.Forms.QRCodeControl();
             this.notifyMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuSysAgentEnabled = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,34 +74,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.bgwPing = new System.ComponentModel.BackgroundWorker();
-            this.cmsLv = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuAddVmessServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAddShadowsocksServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAddCustomServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAddServers = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuScanScreen = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuRemoveServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCopyServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSetDefaultServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuMoveTop = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMoveUp = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMoveDown = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMoveBottom = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuPingServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSpeedServer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuExport2ClientConfig = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExport2ServerConfig = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExport2ShareUrl = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbServer = new System.Windows.Forms.ToolStripDropDownButton();
             this.bgwScan = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lvServers = new System.Windows.Forms.ListView();
-            this.qrCodeControl = new v2rayN.Forms.QRCodeControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMsgBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -95,34 +97,253 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbHelp = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbGithubIssues = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbTelegramGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbLanguageDef = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbLanguageZhHans = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbPromotion = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.cmsMain.SuspendLayout();
-            this.cmsLv.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.cmsLv.SuspendLayout();
+            this.cmsMain.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tsMain.SuspendLayout();
             this.SuspendLayout();
             // 
+            // splitContainer1
+            // 
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
+            this.splitContainer1.Panel1.Controls.Add(this.lvServers);
+            // 
+            // splitContainer1.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
+            this.splitContainer1.Panel2.Controls.Add(this.qrCodeControl);
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // lvServers
+            // 
+            resources.ApplyResources(this.lvServers, "lvServers");
+            this.lvServers.ContextMenuStrip = this.cmsLv;
+            this.lvServers.FullRowSelect = true;
+            this.lvServers.GridLines = true;
+            this.lvServers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvServers.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lvServers.Items")))});
+            this.lvServers.MultiSelect = false;
+            this.lvServers.Name = "lvServers";
+            this.lvServers.UseCompatibleStateImageBehavior = false;
+            this.lvServers.View = System.Windows.Forms.View.Details;
+            this.lvServers.SelectedIndexChanged += new System.EventHandler(this.lvServers_SelectedIndexChanged);
+            this.lvServers.DoubleClick += new System.EventHandler(this.lvServers_DoubleClick);
+            this.lvServers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvServers_KeyDown);
+            // 
+            // cmsLv
+            // 
+            resources.ApplyResources(this.cmsLv, "cmsLv");
+            this.cmsLv.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsLv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAddVmessServer,
+            this.menuAddShadowsocksServer,
+            this.menuAddSocksServer,
+            this.menuAddCustomServer,
+            this.menuAddServers,
+            this.menuScanScreen,
+            this.toolStripSeparator1,
+            this.menuRemoveServer,
+            this.menuCopyServer,
+            this.menuSetDefaultServer,
+            this.toolStripSeparator3,
+            this.menuMoveTop,
+            this.menuMoveUp,
+            this.menuMoveDown,
+            this.menuMoveBottom,
+            this.menuSelectAll,
+            this.toolStripSeparator9,
+            this.menuPingServer,
+            this.menuSpeedServer,
+            this.toolStripSeparator6,
+            this.menuExport2ClientConfig,
+            this.menuExport2ServerConfig,
+            this.menuExport2ShareUrl,
+            this.menuExport2SubContent});
+            this.cmsLv.Name = "cmsLv";
+            this.cmsLv.OwnerItem = this.tsbServer;
+            // 
+            // menuAddVmessServer
+            // 
+            resources.ApplyResources(this.menuAddVmessServer, "menuAddVmessServer");
+            this.menuAddVmessServer.Name = "menuAddVmessServer";
+            this.menuAddVmessServer.Click += new System.EventHandler(this.menuAddVmessServer_Click);
+            // 
+            // menuAddShadowsocksServer
+            // 
+            resources.ApplyResources(this.menuAddShadowsocksServer, "menuAddShadowsocksServer");
+            this.menuAddShadowsocksServer.Name = "menuAddShadowsocksServer";
+            this.menuAddShadowsocksServer.Click += new System.EventHandler(this.menuAddShadowsocksServer_Click);
+            // 
+            // menuAddSocksServer
+            // 
+            resources.ApplyResources(this.menuAddSocksServer, "menuAddSocksServer");
+            this.menuAddSocksServer.Name = "menuAddSocksServer";
+            this.menuAddSocksServer.Click += new System.EventHandler(this.menuAddSocksServer_Click);
+            // 
+            // menuAddCustomServer
+            // 
+            resources.ApplyResources(this.menuAddCustomServer, "menuAddCustomServer");
+            this.menuAddCustomServer.Name = "menuAddCustomServer";
+            this.menuAddCustomServer.Click += new System.EventHandler(this.menuAddCustomServer_Click);
+            // 
+            // menuAddServers
+            // 
+            resources.ApplyResources(this.menuAddServers, "menuAddServers");
+            this.menuAddServers.Name = "menuAddServers";
+            this.menuAddServers.Click += new System.EventHandler(this.menuAddServers_Click);
+            // 
+            // menuScanScreen
+            // 
+            resources.ApplyResources(this.menuScanScreen, "menuScanScreen");
+            this.menuScanScreen.Name = "menuScanScreen";
+            this.menuScanScreen.Click += new System.EventHandler(this.menuScanScreen_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            // 
+            // menuRemoveServer
+            // 
+            resources.ApplyResources(this.menuRemoveServer, "menuRemoveServer");
+            this.menuRemoveServer.Name = "menuRemoveServer";
+            this.menuRemoveServer.Click += new System.EventHandler(this.menuRemoveServer_Click);
+            // 
+            // menuCopyServer
+            // 
+            resources.ApplyResources(this.menuCopyServer, "menuCopyServer");
+            this.menuCopyServer.Name = "menuCopyServer";
+            this.menuCopyServer.Click += new System.EventHandler(this.menuCopyServer_Click);
+            // 
+            // menuSetDefaultServer
+            // 
+            resources.ApplyResources(this.menuSetDefaultServer, "menuSetDefaultServer");
+            this.menuSetDefaultServer.Name = "menuSetDefaultServer";
+            this.menuSetDefaultServer.Click += new System.EventHandler(this.menuSetDefaultServer_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            // 
+            // menuMoveTop
+            // 
+            resources.ApplyResources(this.menuMoveTop, "menuMoveTop");
+            this.menuMoveTop.Name = "menuMoveTop";
+            this.menuMoveTop.Click += new System.EventHandler(this.menuMoveTop_Click);
+            // 
+            // menuMoveUp
+            // 
+            resources.ApplyResources(this.menuMoveUp, "menuMoveUp");
+            this.menuMoveUp.Name = "menuMoveUp";
+            this.menuMoveUp.Click += new System.EventHandler(this.menuMoveUp_Click);
+            // 
+            // menuMoveDown
+            // 
+            resources.ApplyResources(this.menuMoveDown, "menuMoveDown");
+            this.menuMoveDown.Name = "menuMoveDown";
+            this.menuMoveDown.Click += new System.EventHandler(this.menuMoveDown_Click);
+            // 
+            // menuMoveBottom
+            // 
+            resources.ApplyResources(this.menuMoveBottom, "menuMoveBottom");
+            this.menuMoveBottom.Name = "menuMoveBottom";
+            this.menuMoveBottom.Click += new System.EventHandler(this.menuMoveBottom_Click);
+            // 
+            // menuSelectAll
+            // 
+            resources.ApplyResources(this.menuSelectAll, "menuSelectAll");
+            this.menuSelectAll.Name = "menuSelectAll";
+            this.menuSelectAll.Click += new System.EventHandler(this.menuSelectAll_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            // 
+            // menuPingServer
+            // 
+            resources.ApplyResources(this.menuPingServer, "menuPingServer");
+            this.menuPingServer.Name = "menuPingServer";
+            this.menuPingServer.Click += new System.EventHandler(this.menuPingServer_Click);
+            // 
+            // menuSpeedServer
+            // 
+            resources.ApplyResources(this.menuSpeedServer, "menuSpeedServer");
+            this.menuSpeedServer.Name = "menuSpeedServer";
+            this.menuSpeedServer.Click += new System.EventHandler(this.menuSpeedServer_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            // 
+            // menuExport2ClientConfig
+            // 
+            resources.ApplyResources(this.menuExport2ClientConfig, "menuExport2ClientConfig");
+            this.menuExport2ClientConfig.Name = "menuExport2ClientConfig";
+            this.menuExport2ClientConfig.Click += new System.EventHandler(this.menuExport2ClientConfig_Click);
+            // 
+            // menuExport2ServerConfig
+            // 
+            resources.ApplyResources(this.menuExport2ServerConfig, "menuExport2ServerConfig");
+            this.menuExport2ServerConfig.Name = "menuExport2ServerConfig";
+            this.menuExport2ServerConfig.Click += new System.EventHandler(this.menuExport2ServerConfig_Click);
+            // 
+            // menuExport2ShareUrl
+            // 
+            resources.ApplyResources(this.menuExport2ShareUrl, "menuExport2ShareUrl");
+            this.menuExport2ShareUrl.Name = "menuExport2ShareUrl";
+            this.menuExport2ShareUrl.Click += new System.EventHandler(this.menuExport2ShareUrl_Click);
+            // 
+            // menuExport2SubContent
+            // 
+            resources.ApplyResources(this.menuExport2SubContent, "menuExport2SubContent");
+            this.menuExport2SubContent.Name = "menuExport2SubContent";
+            this.menuExport2SubContent.Click += new System.EventHandler(this.menuExport2SubContent_Click);
+            // 
+            // tsbServer
+            // 
+            resources.ApplyResources(this.tsbServer, "tsbServer");
+            this.tsbServer.DropDown = this.cmsLv;
+            this.tsbServer.Image = global::v2rayN.Properties.Resources.server;
+            this.tsbServer.Name = "tsbServer";
+            // 
+            // qrCodeControl
+            // 
+            resources.ApplyResources(this.qrCodeControl, "qrCodeControl");
+            this.qrCodeControl.Name = "qrCodeControl";
+            // 
             // notifyMain
             // 
+            resources.ApplyResources(this.notifyMain, "notifyMain");
             this.notifyMain.ContextMenuStrip = this.cmsMain;
-            this.notifyMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyMain.Icon")));
-            this.notifyMain.Text = "v2rayN";
-            this.notifyMain.Visible = true;
             this.notifyMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyMain_MouseClick);
             // 
             // cmsMain
             // 
+            resources.ApplyResources(this.cmsMain, "cmsMain");
             this.cmsMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSysAgentEnabled,
             this.menuSysAgentMode,
@@ -136,91 +357,79 @@
             this.cmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsMain.ShowCheckMargin = true;
             this.cmsMain.ShowImageMargin = false;
-            this.cmsMain.Size = new System.Drawing.Size(185, 186);
             // 
             // menuSysAgentEnabled
             // 
+            resources.ApplyResources(this.menuSysAgentEnabled, "menuSysAgentEnabled");
             this.menuSysAgentEnabled.Name = "menuSysAgentEnabled";
-            this.menuSysAgentEnabled.Size = new System.Drawing.Size(184, 22);
-            this.menuSysAgentEnabled.Text = "启用Http代理";
             this.menuSysAgentEnabled.Click += new System.EventHandler(this.menuSysAgentEnabled_Click);
             // 
             // menuSysAgentMode
             // 
+            resources.ApplyResources(this.menuSysAgentMode, "menuSysAgentMode");
             this.menuSysAgentMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuGlobal,
             this.menuGlobalPAC,
             this.menuKeep,
             this.menuKeepPAC});
             this.menuSysAgentMode.Name = "menuSysAgentMode";
-            this.menuSysAgentMode.Size = new System.Drawing.Size(184, 22);
-            this.menuSysAgentMode.Text = "Http代理模式";
             // 
             // menuGlobal
             // 
+            resources.ApplyResources(this.menuGlobal, "menuGlobal");
             this.menuGlobal.Name = "menuGlobal";
-            this.menuGlobal.Size = new System.Drawing.Size(340, 22);
-            this.menuGlobal.Text = "开启Http代理,并自动配置代理服务器(全局模式)";
             this.menuGlobal.Click += new System.EventHandler(this.menuGlobal_Click);
             // 
             // menuGlobalPAC
             // 
+            resources.ApplyResources(this.menuGlobalPAC, "menuGlobalPAC");
             this.menuGlobalPAC.Name = "menuGlobalPAC";
-            this.menuGlobalPAC.Size = new System.Drawing.Size(340, 22);
-            this.menuGlobalPAC.Text = "开启PAC,并自动配置PAC(PAC模式)";
             this.menuGlobalPAC.Click += new System.EventHandler(this.menuGlobalPAC_Click);
             // 
             // menuKeep
             // 
+            resources.ApplyResources(this.menuKeep, "menuKeep");
             this.menuKeep.Name = "menuKeep";
-            this.menuKeep.Size = new System.Drawing.Size(340, 22);
-            this.menuKeep.Text = "仅开启Http代理,不自动配置代理服务器(直连模式)";
             this.menuKeep.Click += new System.EventHandler(this.menuKeep_Click);
             // 
             // menuKeepPAC
             // 
+            resources.ApplyResources(this.menuKeepPAC, "menuKeepPAC");
             this.menuKeepPAC.Name = "menuKeepPAC";
-            this.menuKeepPAC.Size = new System.Drawing.Size(340, 22);
-            this.menuKeepPAC.Text = "仅开启PAC,不自动配置PAC";
             this.menuKeepPAC.Click += new System.EventHandler(this.menuKeepPAC_Click);
             // 
             // menuServers
             // 
+            resources.ApplyResources(this.menuServers, "menuServers");
             this.menuServers.Name = "menuServers";
-            this.menuServers.Size = new System.Drawing.Size(184, 22);
-            this.menuServers.Text = "服务器";
             // 
             // menuAddServers2
             // 
+            resources.ApplyResources(this.menuAddServers2, "menuAddServers2");
             this.menuAddServers2.Name = "menuAddServers2";
-            this.menuAddServers2.Size = new System.Drawing.Size(184, 22);
-            this.menuAddServers2.Text = "从剪贴板导入批量URL";
             this.menuAddServers2.Click += new System.EventHandler(this.menuAddServers_Click);
             // 
             // menuScanScreen2
             // 
+            resources.ApplyResources(this.menuScanScreen2, "menuScanScreen2");
             this.menuScanScreen2.Name = "menuScanScreen2";
-            this.menuScanScreen2.Size = new System.Drawing.Size(184, 22);
-            this.menuScanScreen2.Text = "扫描屏幕上的二维码";
             this.menuScanScreen2.Click += new System.EventHandler(this.menuScanScreen_Click);
             // 
             // menuCopyPACUrl
             // 
+            resources.ApplyResources(this.menuCopyPACUrl, "menuCopyPACUrl");
             this.menuCopyPACUrl.Name = "menuCopyPACUrl";
-            this.menuCopyPACUrl.Size = new System.Drawing.Size(184, 22);
-            this.menuCopyPACUrl.Text = "复制本地PAC网址";
             this.menuCopyPACUrl.Click += new System.EventHandler(this.menuCopyPACUrl_Click);
             // 
             // toolStripSeparator2
             // 
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
             // 
             // menuExit
             // 
+            resources.ApplyResources(this.menuExit, "menuExit");
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(184, 22);
-            this.menuExit.Text = "退出";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
             // bgwPing
@@ -228,184 +437,6 @@
             this.bgwPing.WorkerReportsProgress = true;
             this.bgwPing.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwPing_DoWork);
             this.bgwPing.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwPing_ProgressChanged);
-            // 
-            // cmsLv
-            // 
-            this.cmsLv.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsLv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuAddVmessServer,
-            this.menuAddShadowsocksServer,
-            this.menuAddCustomServer,
-            this.menuAddServers,
-            this.menuScanScreen,
-            this.toolStripSeparator1,
-            this.menuRemoveServer,
-            this.menuCopyServer,
-            this.menuSetDefaultServer,
-            this.toolStripSeparator3,
-            this.menuMoveTop,
-            this.menuMoveUp,
-            this.menuMoveDown,
-            this.menuMoveBottom,
-            this.toolStripSeparator9,
-            this.menuPingServer,
-            this.menuSpeedServer,
-            this.toolStripSeparator6,
-            this.menuExport2ClientConfig,
-            this.menuExport2ServerConfig,
-            this.menuExport2ShareUrl});
-            this.cmsLv.Name = "cmsLv";
-            this.cmsLv.OwnerItem = this.tsbServer;
-            this.cmsLv.Size = new System.Drawing.Size(257, 402);
-            // 
-            // menuAddVmessServer
-            // 
-            this.menuAddVmessServer.Name = "menuAddVmessServer";
-            this.menuAddVmessServer.Size = new System.Drawing.Size(256, 22);
-            this.menuAddVmessServer.Text = "添加[VMess]服务器";
-            this.menuAddVmessServer.Click += new System.EventHandler(this.menuAddVmessServer_Click);
-            // 
-            // menuAddShadowsocksServer
-            // 
-            this.menuAddShadowsocksServer.Name = "menuAddShadowsocksServer";
-            this.menuAddShadowsocksServer.Size = new System.Drawing.Size(256, 22);
-            this.menuAddShadowsocksServer.Text = "添加[Shadowsocks]服务器";
-            this.menuAddShadowsocksServer.Click += new System.EventHandler(this.menuAddShadowsocksServer_Click);
-            // 
-            // menuAddCustomServer
-            // 
-            this.menuAddCustomServer.Name = "menuAddCustomServer";
-            this.menuAddCustomServer.Size = new System.Drawing.Size(256, 22);
-            this.menuAddCustomServer.Text = "添加自定义配置服务器";
-            this.menuAddCustomServer.Click += new System.EventHandler(this.menuAddCustomServer_Click);
-            // 
-            // menuAddServers
-            // 
-            this.menuAddServers.Name = "menuAddServers";
-            this.menuAddServers.Size = new System.Drawing.Size(256, 22);
-            this.menuAddServers.Text = "从剪贴板导入批量URL";
-            this.menuAddServers.Click += new System.EventHandler(this.menuAddServers_Click);
-            // 
-            // menuScanScreen
-            // 
-            this.menuScanScreen.Name = "menuScanScreen";
-            this.menuScanScreen.Size = new System.Drawing.Size(256, 22);
-            this.menuScanScreen.Text = "扫描屏幕上的二维码";
-            this.menuScanScreen.Click += new System.EventHandler(this.menuScanScreen_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(253, 6);
-            // 
-            // menuRemoveServer
-            // 
-            this.menuRemoveServer.Name = "menuRemoveServer";
-            this.menuRemoveServer.Size = new System.Drawing.Size(256, 22);
-            this.menuRemoveServer.Text = "移除所选服务器(多选)   (Delete)";
-            this.menuRemoveServer.Click += new System.EventHandler(this.menuRemoveServer_Click);
-            // 
-            // menuCopyServer
-            // 
-            this.menuCopyServer.Name = "menuCopyServer";
-            this.menuCopyServer.Size = new System.Drawing.Size(256, 22);
-            this.menuCopyServer.Text = "复制所选服务器";
-            this.menuCopyServer.Click += new System.EventHandler(this.menuCopyServer_Click);
-            // 
-            // menuSetDefaultServer
-            // 
-            this.menuSetDefaultServer.Name = "menuSetDefaultServer";
-            this.menuSetDefaultServer.Size = new System.Drawing.Size(256, 22);
-            this.menuSetDefaultServer.Text = "设为活动服务器   (Enter)";
-            this.menuSetDefaultServer.Click += new System.EventHandler(this.menuSetDefaultServer_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(253, 6);
-            // 
-            // menuMoveTop
-            // 
-            this.menuMoveTop.Name = "menuMoveTop";
-            this.menuMoveTop.Size = new System.Drawing.Size(256, 22);
-            this.menuMoveTop.Text = "上移至顶";
-            this.menuMoveTop.Click += new System.EventHandler(this.menuMoveTop_Click);
-            // 
-            // menuMoveUp
-            // 
-            this.menuMoveUp.Name = "menuMoveUp";
-            this.menuMoveUp.Size = new System.Drawing.Size(256, 22);
-            this.menuMoveUp.Text = "上移      (U)";
-            this.menuMoveUp.Click += new System.EventHandler(this.menuMoveUp_Click);
-            // 
-            // menuMoveDown
-            // 
-            this.menuMoveDown.Name = "menuMoveDown";
-            this.menuMoveDown.Size = new System.Drawing.Size(256, 22);
-            this.menuMoveDown.Text = "下移      (D)";
-            this.menuMoveDown.Click += new System.EventHandler(this.menuMoveDown_Click);
-            // 
-            // menuMoveBottom
-            // 
-            this.menuMoveBottom.Name = "menuMoveBottom";
-            this.menuMoveBottom.Size = new System.Drawing.Size(256, 22);
-            this.menuMoveBottom.Text = "下移至底";
-            this.menuMoveBottom.Click += new System.EventHandler(this.menuMoveBottom_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(253, 6);
-            // 
-            // menuPingServer
-            // 
-            this.menuPingServer.Name = "menuPingServer";
-            this.menuPingServer.Size = new System.Drawing.Size(256, 22);
-            this.menuPingServer.Text = "测试服务器延迟(多选)";
-            this.menuPingServer.Click += new System.EventHandler(this.menuPingServer_Click);
-            // 
-            // menuSpeedServer
-            // 
-            this.menuSpeedServer.Name = "menuSpeedServer";
-            this.menuSpeedServer.Size = new System.Drawing.Size(256, 22);
-            this.menuSpeedServer.Text = "测试服务器速度(多选)";
-            this.menuSpeedServer.Click += new System.EventHandler(this.menuSpeedServer_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(253, 6);
-            // 
-            // menuExport2ClientConfig
-            // 
-            this.menuExport2ClientConfig.Name = "menuExport2ClientConfig";
-            this.menuExport2ClientConfig.Size = new System.Drawing.Size(256, 22);
-            this.menuExport2ClientConfig.Text = "导出所选服务器为客户端配置";
-            this.menuExport2ClientConfig.Click += new System.EventHandler(this.menuExport2ClientConfig_Click);
-            // 
-            // menuExport2ServerConfig
-            // 
-            this.menuExport2ServerConfig.Name = "menuExport2ServerConfig";
-            this.menuExport2ServerConfig.Size = new System.Drawing.Size(256, 22);
-            this.menuExport2ServerConfig.Text = "导出所选服务器为服务端配置";
-            this.menuExport2ServerConfig.Click += new System.EventHandler(this.menuExport2ServerConfig_Click);
-            // 
-            // menuExport2ShareUrl
-            // 
-            this.menuExport2ShareUrl.Name = "menuExport2ShareUrl";
-            this.menuExport2ShareUrl.Size = new System.Drawing.Size(256, 22);
-            this.menuExport2ShareUrl.Text = "批量导出分享URL至剪贴板(多选)";
-            this.menuExport2ShareUrl.Click += new System.EventHandler(this.menuExport2ShareUrl_Click);
-            // 
-            // tsbServer
-            // 
-            this.tsbServer.DropDown = this.cmsLv;
-            this.tsbServer.Image = global::v2rayN.Properties.Resources.server;
-            this.tsbServer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbServer.Name = "tsbServer";
-            this.tsbServer.Size = new System.Drawing.Size(78, 48);
-            this.tsbServer.Text = "  服务器  ";
-            this.tsbServer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // bgwScan
             // 
@@ -415,97 +446,35 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.splitContainer1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 61);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(942, 414);
-            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "服务器列表";
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 17);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.lvServers);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.qrCodeControl);
-            this.splitContainer1.Size = new System.Drawing.Size(936, 394);
-            this.splitContainer1.SplitterDistance = 633;
-            this.splitContainer1.TabIndex = 2;
-            // 
-            // lvServers
-            // 
-            this.lvServers.ContextMenuStrip = this.cmsLv;
-            this.lvServers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvServers.FullRowSelect = true;
-            this.lvServers.GridLines = true;
-            this.lvServers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvServers.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.lvServers.Location = new System.Drawing.Point(0, 0);
-            this.lvServers.MultiSelect = false;
-            this.lvServers.Name = "lvServers";
-            this.lvServers.ShowGroups = false;
-            this.lvServers.Size = new System.Drawing.Size(633, 394);
-            this.lvServers.TabIndex = 1;
-            this.lvServers.UseCompatibleStateImageBehavior = false;
-            this.lvServers.View = System.Windows.Forms.View.Details;
-            this.lvServers.SelectedIndexChanged += new System.EventHandler(this.lvServers_SelectedIndexChanged);
-            this.lvServers.DoubleClick += new System.EventHandler(this.lvServers_DoubleClick);
-            this.lvServers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvServers_KeyDown);
-            // 
-            // qrCodeControl
-            // 
-            this.qrCodeControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.qrCodeControl.Location = new System.Drawing.Point(0, 0);
-            this.qrCodeControl.Name = "qrCodeControl";
-            this.qrCodeControl.Size = new System.Drawing.Size(299, 394);
-            this.qrCodeControl.TabIndex = 0;
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.txtMsgBox);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 475);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(942, 176);
-            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "信息";
             // 
             // txtMsgBox
             // 
+            resources.ApplyResources(this.txtMsgBox, "txtMsgBox");
             this.txtMsgBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.txtMsgBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMsgBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMsgBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(226)))), ((int)(((byte)(228)))));
-            this.txtMsgBox.Location = new System.Drawing.Point(3, 17);
-            this.txtMsgBox.MaxLength = 0;
-            this.txtMsgBox.Multiline = true;
             this.txtMsgBox.Name = "txtMsgBox";
             this.txtMsgBox.ReadOnly = true;
-            this.txtMsgBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMsgBox.Size = new System.Drawing.Size(936, 156);
-            this.txtMsgBox.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 51);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(942, 10);
-            this.panel1.TabIndex = 5;
             // 
             // tsMain
             // 
+            resources.ApplyResources(this.tsMain, "tsMain");
             this.tsMain.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbServer,
@@ -519,209 +488,194 @@
             this.tsbCheckUpdate,
             this.toolStripSeparator10,
             this.tsbHelp,
+            this.tsbPromotion,
             this.toolStripSeparator11,
             this.tsbClose});
-            this.tsMain.Location = new System.Drawing.Point(0, 0);
             this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(942, 51);
-            this.tsMain.TabIndex = 6;
             // 
             // toolStripSeparator4
             // 
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 51);
             // 
             // tsbSub
             // 
+            resources.ApplyResources(this.tsbSub, "tsbSub");
             this.tsbSub.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbSubSetting,
             this.tsbSubUpdate});
             this.tsbSub.Image = global::v2rayN.Properties.Resources.sub;
-            this.tsbSub.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSub.Name = "tsbSub";
-            this.tsbSub.Size = new System.Drawing.Size(66, 48);
-            this.tsbSub.Text = "  订阅  ";
-            this.tsbSub.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbSubSetting
             // 
+            resources.ApplyResources(this.tsbSubSetting, "tsbSubSetting");
             this.tsbSubSetting.Name = "tsbSubSetting";
-            this.tsbSubSetting.Size = new System.Drawing.Size(118, 22);
-            this.tsbSubSetting.Text = "订阅设置";
             this.tsbSubSetting.Click += new System.EventHandler(this.tsbSubSetting_Click);
             // 
             // tsbSubUpdate
             // 
+            resources.ApplyResources(this.tsbSubUpdate, "tsbSubUpdate");
             this.tsbSubUpdate.Name = "tsbSubUpdate";
-            this.tsbSubUpdate.Size = new System.Drawing.Size(118, 22);
-            this.tsbSubUpdate.Text = "更新订阅";
             this.tsbSubUpdate.Click += new System.EventHandler(this.tsbSubUpdate_Click);
             // 
             // toolStripSeparator8
             // 
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 51);
             // 
             // tsbOptionSetting
             // 
+            resources.ApplyResources(this.tsbOptionSetting, "tsbOptionSetting");
             this.tsbOptionSetting.Image = global::v2rayN.Properties.Resources.option;
-            this.tsbOptionSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOptionSetting.Name = "tsbOptionSetting";
-            this.tsbOptionSetting.Size = new System.Drawing.Size(81, 48);
-            this.tsbOptionSetting.Text = "  参数设置  ";
-            this.tsbOptionSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbOptionSetting.Click += new System.EventHandler(this.tsbOptionSetting_Click);
             // 
             // toolStripSeparator5
             // 
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 51);
             // 
             // tsbReload
             // 
-            this.tsbReload.Image = ((System.Drawing.Image)(resources.GetObject("tsbReload.Image")));
-            this.tsbReload.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.tsbReload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.tsbReload, "tsbReload");
             this.tsbReload.Name = "tsbReload";
-            this.tsbReload.Size = new System.Drawing.Size(81, 48);
-            this.tsbReload.Text = "  重启服务  ";
-            this.tsbReload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbReload.Click += new System.EventHandler(this.tsbReload_Click);
             // 
             // toolStripSeparator7
             // 
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 51);
             // 
             // tsbCheckUpdate
             // 
+            resources.ApplyResources(this.tsbCheckUpdate, "tsbCheckUpdate");
             this.tsbCheckUpdate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCheckUpdateN,
             this.tsbCheckUpdateCore,
             this.tsbCheckUpdatePACList,
             this.tsbCheckClearPACList});
             this.tsbCheckUpdate.Image = global::v2rayN.Properties.Resources.checkupdate;
-            this.tsbCheckUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCheckUpdate.Name = "tsbCheckUpdate";
-            this.tsbCheckUpdate.Size = new System.Drawing.Size(90, 48);
-            this.tsbCheckUpdate.Text = "  检查更新  ";
-            this.tsbCheckUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbCheckUpdateN
             // 
+            resources.ApplyResources(this.tsbCheckUpdateN, "tsbCheckUpdateN");
             this.tsbCheckUpdateN.Name = "tsbCheckUpdateN";
-            this.tsbCheckUpdateN.Size = new System.Drawing.Size(226, 22);
-            this.tsbCheckUpdateN.Text = "检查更新v2rayN";
             this.tsbCheckUpdateN.Click += new System.EventHandler(this.tsbCheckUpdateN_Click);
             // 
             // tsbCheckUpdateCore
             // 
+            resources.ApplyResources(this.tsbCheckUpdateCore, "tsbCheckUpdateCore");
             this.tsbCheckUpdateCore.Name = "tsbCheckUpdateCore";
-            this.tsbCheckUpdateCore.Size = new System.Drawing.Size(226, 22);
-            this.tsbCheckUpdateCore.Text = "检查更新v2rayCore";
             this.tsbCheckUpdateCore.Click += new System.EventHandler(this.tsbCheckUpdateCore_Click);
             // 
             // tsbCheckUpdatePACList
             // 
+            resources.ApplyResources(this.tsbCheckUpdatePACList, "tsbCheckUpdatePACList");
             this.tsbCheckUpdatePACList.Name = "tsbCheckUpdatePACList";
-            this.tsbCheckUpdatePACList.Size = new System.Drawing.Size(226, 22);
-            this.tsbCheckUpdatePACList.Text = "检查更新PAC (需要Http代理)";
             this.tsbCheckUpdatePACList.Click += new System.EventHandler(this.tsbCheckUpdatePACList_Click);
             // 
             // tsbCheckClearPACList
             // 
+            resources.ApplyResources(this.tsbCheckClearPACList, "tsbCheckClearPACList");
             this.tsbCheckClearPACList.Name = "tsbCheckClearPACList";
-            this.tsbCheckClearPACList.Size = new System.Drawing.Size(226, 22);
-            this.tsbCheckClearPACList.Text = "简化PAC (请设置Core路由)";
             this.tsbCheckClearPACList.Click += new System.EventHandler(this.tsbCheckClearPACList_Click);
             // 
             // toolStripSeparator10
             // 
+            resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 51);
             // 
             // tsbHelp
             // 
+            resources.ApplyResources(this.tsbHelp, "tsbHelp");
             this.tsbHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbGithubIssues,
-            this.tsbTelegramGroup,
             this.tsbDonate,
-            this.tsbAbout});
+            this.tsbAbout,
+            this.toolStripSeparator12,
+            this.tsbLanguageDef,
+            this.tsbLanguageZhHans});
             this.tsbHelp.Image = global::v2rayN.Properties.Resources.help;
-            this.tsbHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbHelp.Name = "tsbHelp";
-            this.tsbHelp.Size = new System.Drawing.Size(78, 48);
-            this.tsbHelp.Text = "   帮助   ";
-            this.tsbHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbGithubIssues
             // 
+            resources.ApplyResources(this.tsbGithubIssues, "tsbGithubIssues");
             this.tsbGithubIssues.Name = "tsbGithubIssues";
-            this.tsbGithubIssues.Size = new System.Drawing.Size(178, 22);
-            this.tsbGithubIssues.Text = "反馈至Github";
             this.tsbGithubIssues.Click += new System.EventHandler(this.tsbGithubIssues_Click);
-            // 
-            // tsbTelegramGroup
-            // 
-            this.tsbTelegramGroup.Name = "tsbTelegramGroup";
-            this.tsbTelegramGroup.Size = new System.Drawing.Size(178, 22);
-            this.tsbTelegramGroup.Text = "加入Telegram Group";
-            this.tsbTelegramGroup.Click += new System.EventHandler(this.tsbTelegramGroup_Click);
             // 
             // tsbDonate
             // 
+            resources.ApplyResources(this.tsbDonate, "tsbDonate");
             this.tsbDonate.Name = "tsbDonate";
-            this.tsbDonate.Size = new System.Drawing.Size(178, 22);
-            this.tsbDonate.Text = "捐赠";
             this.tsbDonate.Click += new System.EventHandler(this.tsbDonate_Click);
             // 
             // tsbAbout
             // 
+            resources.ApplyResources(this.tsbAbout, "tsbAbout");
             this.tsbAbout.Name = "tsbAbout";
-            this.tsbAbout.Size = new System.Drawing.Size(178, 22);
-            this.tsbAbout.Text = "关于";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            resources.ApplyResources(this.toolStripSeparator12, "toolStripSeparator12");
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            // 
+            // tsbLanguageDef
+            // 
+            resources.ApplyResources(this.tsbLanguageDef, "tsbLanguageDef");
+            this.tsbLanguageDef.Name = "tsbLanguageDef";
+            this.tsbLanguageDef.Click += new System.EventHandler(this.tsbLanguageDef_Click);
+            // 
+            // tsbLanguageZhHans
+            // 
+            resources.ApplyResources(this.tsbLanguageZhHans, "tsbLanguageZhHans");
+            this.tsbLanguageZhHans.Name = "tsbLanguageZhHans";
+            this.tsbLanguageZhHans.Click += new System.EventHandler(this.tsbLanguageZhHans_Click);
+            // 
+            // tsbPromotion
+            // 
+            resources.ApplyResources(this.tsbPromotion, "tsbPromotion");
+            this.tsbPromotion.ForeColor = System.Drawing.Color.Red;
+            this.tsbPromotion.Image = global::v2rayN.Properties.Resources.promotion;
+            this.tsbPromotion.Name = "tsbPromotion";
+            this.tsbPromotion.Click += new System.EventHandler(this.tsbPromotion_Click);
             // 
             // toolStripSeparator11
             // 
+            resources.ApplyResources(this.toolStripSeparator11, "toolStripSeparator11");
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 51);
             // 
             // tsbClose
             // 
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.tsbClose, "tsbClose");
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(69, 48);
-            this.tsbClose.Text = "  最小化  ";
-            this.tsbClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 651);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsMain);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = true;
             this.MinimizeBox = true;
             this.Name = "MainForm";
-            this.Text = "v2rayN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
-            this.cmsMain.ResumeLayout(false);
-            this.cmsLv.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.cmsLv.ResumeLayout(false);
+            this.cmsMain.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tsMain.ResumeLayout(false);
@@ -791,7 +745,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsbDonate;
         private System.Windows.Forms.ToolStripMenuItem tsbAbout;
         private System.Windows.Forms.ToolStripMenuItem tsbGithubIssues;
-        private System.Windows.Forms.ToolStripMenuItem tsbTelegramGroup;
         private System.Windows.Forms.ToolStripMenuItem menuAddServers2;
         private System.ComponentModel.BackgroundWorker bgwScan;
         private System.Windows.Forms.ToolStripMenuItem menuScanScreen;
@@ -802,6 +755,13 @@
         private System.Windows.Forms.ToolStripMenuItem tsbSubUpdate;
         private System.Windows.Forms.ToolStripMenuItem tsbCheckClearPACList;
         private System.Windows.Forms.ToolStripMenuItem menuKeepPAC;
+        private System.Windows.Forms.ToolStripMenuItem menuSelectAll;
+        private System.Windows.Forms.ToolStripMenuItem menuExport2SubContent;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripMenuItem tsbLanguageDef;
+        private System.Windows.Forms.ToolStripMenuItem tsbLanguageZhHans;
+        private System.Windows.Forms.ToolStripButton tsbPromotion;
+        private System.Windows.Forms.ToolStripMenuItem menuAddSocksServer;
     }
 }
 

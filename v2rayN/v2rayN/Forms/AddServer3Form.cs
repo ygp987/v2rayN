@@ -13,7 +13,6 @@ namespace v2rayN.Forms
         public AddServer3Form()
         {
             InitializeComponent();
-            this.TopMost = true;
         }
 
         private void AddServer3Form_Load(object sender, EventArgs e)
@@ -66,22 +65,22 @@ namespace v2rayN.Forms
 
             if (Utils.IsNullOrEmpty(address))
             {
-                UI.Show("请填写服务器地址");
+                UI.Show(UIRes.I18N("FillServerAddress"));
                 return;
             }
             if (Utils.IsNullOrEmpty(port) || !Utils.IsNumberic(port))
             {
-                UI.Show("请填写正确格式服务器端口");
+                UI.Show(UIRes.I18N("FillCorrectServerPort"));
                 return;
             }
             if (Utils.IsNullOrEmpty(id))
             {
-                UI.Show("请填写密码");
+                UI.Show(UIRes.I18N("FillPassword"));
                 return;
             }
             if (Utils.IsNullOrEmpty(security))
             {
-                UI.Show("请选择加密方式");
+                UI.Show(UIRes.I18N("PleaseSelectEncryption"));
                 return;
             }
 
@@ -97,7 +96,7 @@ namespace v2rayN.Forms
             }
             else
             {
-                UI.Show("操作失败，请检查重试");
+                UI.Show(UIRes.I18N("OperationFailed"));
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -106,71 +105,8 @@ namespace v2rayN.Forms
         }
 
 
-        #region 导入客户端/服务端配置
-
-        /// <summary>
-        /// 导入客户端
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MenuItemImportClient_Click(object sender, EventArgs e)
-        {
-            MenuItemImport(1);
-        }
-
-        /// <summary>
-        /// 导入服务端
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MenuItemImportServer_Click(object sender, EventArgs e)
-        {
-            MenuItemImport(2);
-        }
-
-        private void MenuItemImport(int type)
-        {
-            //ClearServer();
-
-            //OpenFileDialog fileDialog = new OpenFileDialog();
-            //fileDialog.Multiselect = false;
-            //fileDialog.Filter = "Config|*.json|所有文件|*.*";
-            //if (fileDialog.ShowDialog() != DialogResult.OK)
-            //{
-            //    return;
-            //}
-            //string fileName = fileDialog.FileName;
-            //if (Utils.IsNullOrEmpty(fileName))
-            //{
-            //    return;
-            //}
-            //string msg;
-            //VmessItem vmessItem;
-            //if (type.Equals(1))
-            //{
-            //    vmessItem = V2rayConfigHandler.ImportFromClientConfig(fileName, out msg);
-            //}
-            //else
-            //{
-            //    vmessItem = V2rayConfigHandler.ImportFromServerConfig(fileName, out msg);
-            //}
-            //if (vmessItem == null)
-            //{
-            //    UI.Show(msg);
-            //    return;
-            //}
-
-            //txtAddress.Text = vmessItem.address;
-            //txtPort.Text = vmessItem.port.ToString();
-            //txtId.Text = vmessItem.id;
-            //txtAlterId.Text = vmessItem.alterId.ToString();
-            //txtRemarks.Text = vmessItem.remarks;
-            //cmbNetwork.Text = vmessItem.network;
-            //cmbHeaderType.Text = vmessItem.headerType;
-            //txtRequestHost.Text = vmessItem.requestHost;
-            //cmbStreamSecurity.Text = vmessItem.streamSecurity;
-        }
-
+        #region 导入配置
+         
         /// <summary>
         /// 从剪贴板导入URL
         /// </summary>
@@ -199,37 +135,9 @@ namespace v2rayN.Forms
             txtId.Text = vmessItem.id;
             txtRemarks.Text = vmessItem.remarks;
         }
-
-        private void menuItemScanScreen_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-            bgwScan.RunWorkerAsync();
-        }
-
+         
         #endregion
-
-        private void bgwScan_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            string ret = Utils.ScanScreen();
-            bgwScan.ReportProgress(0, ret);
-        }
-
-        private void bgwScan_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-
-            string result = Convert.ToString(e.UserState);
-            if (string.IsNullOrEmpty(result))
-            {
-                UI.Show("扫描完成,未发现有效二维码");
-            }
-            else
-            {
-                Utils.SetClipboardData(result);
-                ImportConfig();
-            }
-
-        }
+         
 
     }
 }
