@@ -35,10 +35,6 @@ namespace v2rayN.Handler
                 config.loglevel = "warning";
                 config.vmess = new List<VmessItem>();
 
-                //路由
-                config.chinasites = false;
-                config.chinaip = false;
-
                 //Mux
                 config.muxEnabled = true;
 
@@ -52,9 +48,10 @@ namespace v2rayN.Handler
                 config.inbound = new List<InItem>();
                 InItem inItem = new InItem();
                 inItem.protocol = "socks";
-                inItem.localPort = 1080;
                 inItem.timeout = 300;
+                inItem.localPort = 10808;
                 inItem.udpEnabled = true;
+                inItem.sniffingEnabled = true;
 
                 config.inbound.Add(inItem);
 
@@ -74,6 +71,14 @@ namespace v2rayN.Handler
                 }
             }
             //路由规则
+            if (Utils.IsNullOrEmpty(config.domainStrategy))
+            {
+                config.domainStrategy = "IPIfNonMatch";
+            }
+            if (Utils.IsNullOrEmpty(config.routingMode))
+            {
+                config.routingMode = "0";
+            }
             if (config.useragent == null)
             {
                 config.useragent = new List<string>();
@@ -98,7 +103,10 @@ namespace v2rayN.Handler
                 config.kcpItem.writeBufferSize = 2;
                 config.kcpItem.congestion = false;
             }
-
+            if (config.uiItem == null)
+            {
+                config.uiItem = new UIItem();
+            }
             //// 如果是用户升级，首次会有端口号为0的情况，不可用，这里处理
             //if (config.pacPort == 0)
             //{
@@ -231,7 +239,7 @@ namespace v2rayN.Handler
             vmessItem.requestHost = config.vmess[index].requestHost;
             vmessItem.path = config.vmess[index].path;
             vmessItem.streamSecurity = config.vmess[index].streamSecurity;
-            vmessItem.remarks = string.Format("{0}-副本", config.vmess[index].remarks);
+            vmessItem.remarks = string.Format("{0}-clone", config.vmess[index].remarks);
 
             config.vmess.Add(vmessItem);
 
@@ -336,6 +344,19 @@ namespace v2rayN.Handler
                         vmessItem.port);
                     url = Utils.Base64Encode(url);
                     url = string.Format("{0}{1}{2}", Global.ssProtocol, url, remark);
+                }
+                else if (vmessItem.configType == (int)EConfigType.Socks)
+                {
+                    var remark = string.Empty;
+                    if (!Utils.IsNullOrEmpty(vmessItem.remarks))
+                    {
+                        remark = "#" + WebUtility.UrlEncode(vmessItem.remarks);
+                    }
+                    url = string.Format("{0}:{1}",
+                        vmessItem.address,
+                        vmessItem.port);
+                    url = Utils.Base64Encode(url);
+                    url = string.Format("{0}{1}{2}", Global.socksProtocol, url, remark);
                 }
                 else
                 {
@@ -554,6 +575,42 @@ namespace v2rayN.Handler
         }
 
         /// <summary>
+        /// 添加服务器或编辑
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="vmessItem"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static int AddSocksServer(ref Config config, VmessItem vmessItem, int index)
+        {
+            vmessItem.configVersion = 2;
+            vmessItem.configType = (int)EConfigType.Socks;
+            if (index >= 0)
+            {
+                //修改
+                config.vmess[index] = vmessItem;
+                if (config.index.Equals(index))
+                {
+                    Global.reloadV2ray = true;
+                }
+            }
+            else
+            {
+                //添加
+                config.vmess.Add(vmessItem);
+                if (config.vmess.Count == 1)
+                {
+                    config.index = 0;
+                    Global.reloadV2ray = true;
+                }
+            }
+
+            ToJsonFile(config);
+
+            return 0;
+        }
+
+        /// <summary>
         /// 配置文件版本升级
         /// </summary>
         /// <param name="vmessItem"></param>
@@ -658,6 +715,13 @@ namespace v2rayN.Handler
                 else if (vmessItem.configType == (int)EConfigType.Shadowsocks)
                 {
                     if (AddShadowsocksServer(ref config, vmessItem, -1) == 0)
+                    {
+                        countServers++;
+                    }
+                }
+                else if (vmessItem.configType == (int)EConfigType.Socks)
+                {
+                    if (AddSocksServer(ref config, vmessItem, -1) == 0)
                     {
                         countServers++;
                     }

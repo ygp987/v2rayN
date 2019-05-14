@@ -21,18 +21,23 @@ namespace v2rayN
         ///  
         /// </summary>
         public const string GithubIssuesUrl = @"https://github.com/2dust/v2rayN/issues";
-        /// <summary>
-        ///  
-        /// </summary>
-        public const string TelegramGroupUrl = @"https://t.me/v2rayN";
+
 
         /// <summary>
         /// SpeedTestUrl
         /// </summary>
-        //public const string SpeedTestUrl = @"https://github.com/2dust/v2rayN/releases/download/2.1/test.zip";
-        //public const string SpeedTestUrl = @"http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin";
-        public const string SpeedTestUrl = @"http://speedtest-sfo2.digitalocean.com/10mb.test";
+        //public const string SpeedTestUrl = @"http://speedtest-sfo2.digitalocean.com/10mb.test";
+        public const string SpeedTestUrl = @"https://github.com/2dust/v2rayN/releases/download/2.24/v2rayN.zip";
 
+        /// <summary>
+        /// CustomRoutingListUrl
+        /// </summary>
+        public const string CustomRoutingListUrl = @"https://raw.githubusercontent.com/2dust/v2rayCustomRoutingList/master/";
+
+        /// <summary>
+        /// PromotionUrl
+        /// </summary>
+        public const string PromotionUrl = @"https://1.2345345.xyz/ads.html";
 
         /// <summary>
         /// 本软件配置文件名
@@ -69,7 +74,7 @@ namespace v2rayN
         /// <summary>
         /// 默认加密方式
         /// </summary>
-        public const string DefaultSecurity = "aes-128-gcm";
+        public const string DefaultSecurity = "auto";
 
         /// <summary>
         /// 默认传输协议
@@ -89,7 +94,7 @@ namespace v2rayN
         /// <summary>
         /// 代理 tag值
         /// </summary>
-        public const string agentTag = "agentout";
+        public const string agentTag = "proxy";
 
         /// <summary>
         /// 直连 tag值
@@ -99,7 +104,7 @@ namespace v2rayN
         /// <summary>
         /// 阻止 tag值
         /// </summary>
-        public const string blockTag = "blockout";
+        public const string blockTag = "block";
 
         /// <summary>
         /// vmess
@@ -109,6 +114,10 @@ namespace v2rayN
         /// shadowsocks
         /// </summary>
         public const string ssProtocol = "ss://";
+        /// <summary>
+        /// socks
+        /// </summary>
+        public const string socksProtocol = "socks://";
 
         /// <summary>
         /// pac
@@ -120,6 +129,19 @@ namespace v2rayN
         /// </summary>
         public const string userEMail = "t@t.tt";
 
+        /// <summary>
+        /// MyRegPath
+        /// </summary>
+        public const string MyRegPath = "Software\\v2rayNGUI";
+
+        /// <summary>
+        /// Language
+        /// </summary>
+        public const string MyRegKeyLanguage = "CurrentLanguage";
+        /// <summary>
+        /// Icon
+        /// </summary>
+        public const string CustomIconName = "v2rayN.ico";
 
         #endregion
 

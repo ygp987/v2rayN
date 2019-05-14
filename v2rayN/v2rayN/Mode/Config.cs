@@ -41,14 +41,14 @@ namespace v2rayN.Mode
         public bool muxEnabled { get; set; }
 
         /// <summary>
-        /// 路由=>绕过大陆网址
+        /// 域名解析策略
         /// </summary>
-        public bool chinasites { get; set; }
+        public string domainStrategy { get; set; }
 
         /// <summary>
-        /// 路由=>绕过大陆ip
+        /// 路由模式
         /// </summary>
-        public bool chinaip { get; set; }
+        public string routingMode { get; set; }
 
         /// <summary>
         /// 用户自定义需代理的网址或ip
@@ -69,7 +69,7 @@ namespace v2rayN.Mode
         /// KcpItem
         /// </summary>
         public KcpItem kcpItem { get; set; }
-              
+
 
         /// <summary>
         /// 启用Http代理
@@ -99,6 +99,10 @@ namespace v2rayN.Mode
         /// 订阅
         /// </summary>
         public List<SubItem> subItem { get; set; }
+        /// <summary>
+        /// UI
+        /// </summary>
+        public UIItem uiItem { get; set; }
 
         #region 函数
 
@@ -115,7 +119,7 @@ namespace v2rayN.Mode
         {
             if (index < 0)
             {
-                return 1080;
+                return 10808;
             }
             return vmess[index].port;
         }
@@ -169,7 +173,7 @@ namespace v2rayN.Mode
             {
                 return Global.None;
             }
-            return vmess[index].headerType;
+            return vmess[index].headerType.Replace(" ", "").Trim();
         }
         public string requestHost()
         {
@@ -177,7 +181,7 @@ namespace v2rayN.Mode
             {
                 return string.Empty;
             }
-            return vmess[index].requestHost;
+            return vmess[index].requestHost.Replace(" ", "").Trim();
         }
         public string path()
         {
@@ -185,7 +189,7 @@ namespace v2rayN.Mode
             {
                 return string.Empty;
             }
-            return vmess[index].path;
+            return vmess[index].path.Replace(" ", "").Trim();
         }
         public string streamSecurity()
         {
@@ -286,6 +290,10 @@ namespace v2rayN.Mode
                 summary += string.Format("{0}({1}:{2})", remarks, addr, port);
             }
             else if (configType == (int)EConfigType.Shadowsocks)
+            {
+                summary += string.Format("{0}({1}:{2})", remarks, addr, port);
+            }
+            else if (configType == (int)EConfigType.Socks)
             {
                 summary += string.Format("{0}({1}:{2})", remarks, addr, port);
             }
@@ -414,6 +422,11 @@ namespace v2rayN.Mode
         /// </summary>
         public int timeout { get; set; }
 
+
+        /// <summary>
+        /// 开启流量探测
+        /// </summary>
+        public bool sniffingEnabled { get; set; } = true;
     }
 
     [Serializable]
@@ -467,5 +480,20 @@ namespace v2rayN.Mode
         /// url
         /// </summary>
         public string url { get; set; }
+
+        /// <summary>
+        /// enable
+        /// </summary>
+        public bool enabled { get; set; } = true;
+    }
+
+    [Serializable]
+    public class UIItem
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int mainQRCodeWidth { get; set; } = 600;
+
     }
 }
